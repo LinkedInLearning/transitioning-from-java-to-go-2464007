@@ -13,7 +13,7 @@ func rectangle(x int, y int) (int, int) {
 func main() {
 	x := 2
 	y := 3
-	area, circumf := rectangle(x, y)
+	area, _ := rectangle(x, y)
 	fmt.Printf("rectangle(%v,%v): area = %v;\n", x, y, area)
-	fmt.Printf("rectangle(%v,%v): circumference = %v;\n", x, y, circumf)
+	// fmt.Printf("rectangle(%v,%v): circumference = %v;\n", x, y, circumf)
 }
