@@ -16,12 +16,9 @@ func main() {
 	p.CityHeader()
 
 	// setup 3 cities
-	lon := models.NewCity("London")
-	lon.TempC = 7.5
-	ams := models.NewCity("Amsterdam")
-	ams.TempC = 11
-	nyc := models.NewCity("New York")
-	nyc.TempC = -3
+	lon := models.NewCity("London", 7.5)
+	ams := models.NewCity("Amsterdam", 11)
+	nyc := models.NewCity("New York", -3)
 
 	//print all the cities
 	p.CityDetails(lon)
