@@ -1,31 +1,30 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-type city struct {
-	name  string
-	tempC float64 // temperature in Celsius
-}
-
-func newCity(n string) city {
-	return city{
-		name: n,
-	}
-}
-
-// Function equivalent to the tempF method.
-// func tempF(c city) float64 {
-// 	return (c.tempC * 9 / 5) + 32
-// }
-
-func (c city) tempF() float64 {
-	return (c.tempC * 9 / 5) + 32
-}
+	"github.com/tempService/city"
+	"github.com/tempService/printer"
+)
 
 func main() {
-	c := newCity("London")
-	c.tempC = 7.5
-	tempF := c.tempF()
+	fmt.Printf("Welcome to the City Temp Service!\n\n")
 
-	fmt.Printf("[%v]:tempC=%v;tempF=%v\n", c.name, c.tempC, tempF)
+	// initialise printer and defer cleanup
+	p := printer.New()
+	defer p.Cleanup()
+	p.CityHeader()
+
+	// setup 3 cities
+	lon := city.New("London")
+	lon.TempC = 7.5
+	ams := city.New("Amsterdam")
+	ams.TempC = 11
+	nyc := city.New("New York")
+	nyc.TempC = -3
+
+	//print all the cities
+	p.CityDetails(lon)
+	p.CityDetails(ams)
+	p.CityDetails(nyc)
 }
