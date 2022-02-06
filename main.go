@@ -23,6 +23,11 @@ func main() {
 	defer p.Cleanup()
 	p.CityHeader()
 
+	// setup 3 cities
+	lon := city.New("London", 7.5)
+	ams := city.New("Amsterdam", 11)
+	nyc := city.New("New York", -3)
+
 	//print all the cities
 	for _, c := range cities.ListAll() {
 		p.CityDetails(c)
