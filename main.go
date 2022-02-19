@@ -15,13 +15,17 @@ func main() {
 	defer p.Cleanup()
 	p.CityHeader()
 
-	// setup 3 cities
-	lon := models.NewCity("London", 7.5)
-	ams := models.NewCity("Amsterdam", 11)
-	nyc := models.NewCity("New York", -3)
+	// setup some cities
+	lon := models.NewCity("London", 23, false, false)
+	bcn := models.NewCity("Barcelona", 30, true, false)
+	nyc := models.NewCity("New York", 28, true, false)
+	ant := models.NewCity("St. Anton", -3, false, true)
+	asp := models.NewCity("Aspen", -5, false, true)
 
 	//print all the cities
 	p.CityDetails(lon)
-	p.CityDetails(ams)
+	p.CityDetails(bcn)
 	p.CityDetails(nyc)
+	p.CityDetails(ant)
+	p.CityDetails(asp)
 }
