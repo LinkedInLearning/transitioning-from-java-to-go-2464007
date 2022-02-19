@@ -1,5 +1,12 @@
 package models
 
+var (
+	// hot enough for the beach
+	beachVacationThreshold float64 = 22
+	// cold enough to snow
+	skiVacationThreshold float64 = -2
+)
+
 type city struct {
 	name  string
 	tempC float64 // temperature in Celsius
@@ -10,6 +17,10 @@ type CityTemp interface {
 	Name() string
 	TempC() float64
 	TempF() float64
+
+	// IMPLEMENT ME!
+	BeachVacationReady() bool
+	SkiVacationReady() bool
 }
 
 // NewCity creates a new city instance with the given name and Celsius temperated
