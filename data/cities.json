@@ -1,0 +1,80 @@
+[
+    {
+       "id":"ldn",
+       "name":"London (United Kingdom)",
+       "hasBeach":false,
+       "hasMountain":false,
+       "tempC":23
+    },
+    {
+       "id":"bcn",
+       "name":"Barcelona (Spain)",
+       "hasBeach":true,
+       "hasMountain":false,
+       "tempC":30.5
+    },
+    {
+       "id":"nyc",
+       "name":"New York (United States of America)",
+       "hasBeach":true,
+       "hasMountain":false,
+       "tempC":28
+    },
+    {
+       "id":"asp",
+       "name":"Aspen (United States of America)",
+       "hasBeach":false,
+       "hasMountain":true,
+       "tempC":-5
+    },
+    {
+       "id":"ant",
+       "name":"St.Anton (Austria)",
+       "hasBeach":false,
+       "hasMountain":true,
+       "tempC":-3
+    },
+    {
+       "id":"cun",
+       "name":"Cancun (Mexico)",
+       "hasBeach":true,
+       "hasMountain":false,
+       "tempC":33
+    },
+    {
+       "id":"ber",
+       "name":"Berlin (Germany)",
+       "hasBeach":false,
+       "hasMountain":false,
+       "tempC":20
+    },
+    {
+       "id":"lis",
+       "name":"Lisbon (Portugal)",
+       "hasBeach":true,
+       "hasMountain":false,
+       "tempC":25
+    },
+    {
+       "id":"zer",
+       "name":"Zermatt (Switzerland)",
+       "hasBeach":false,
+       "hasMountain":true,
+       "tempC":2
+    },
+    {
+       "id":"nsk",
+       "name":"Niseko (Japan)",
+       "country":"Japan",
+       "hasBeach":false,
+       "hasMountain":true,
+       "tempC":-1
+    },
+    {
+       "id":"gcn",
+       "name":"Gran Canaria (Spain)",
+       "hasBeach":true,
+       "hasMountain":false,
+       "tempC":18.8
+    }
+ ]
