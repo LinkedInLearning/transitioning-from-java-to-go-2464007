@@ -5,7 +5,11 @@ import (
 	"os"
 	"text/tabwriter"
 
+<<<<<<< HEAD
 	"linkedInLearning/tempService/models"
+=======
+	"github.com/tempService/models"
+>>>>>>> 6347cdc (add json input for cities)
 )
 
 type Printer struct {
