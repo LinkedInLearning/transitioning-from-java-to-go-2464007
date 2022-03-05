@@ -18,6 +18,13 @@ func main() {
 		return
 	}
 
+	// create cities
+	cities, err := models.NewCities()
+	if err != nil {
+		fmt.Println("Fatal error occurred: ", err)
+		return
+	}
+
 	// initialise printer and defer cleanup
 	p := printer.New()
 	defer p.Cleanup()
