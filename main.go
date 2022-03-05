@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"linkedInLearning/tempService/data"
 	"linkedInLearning/tempService/models"
 	"linkedInLearning/tempService/printer"
 )
@@ -10,22 +11,20 @@ import (
 func main() {
 	fmt.Printf("Welcome to the LinkedIn Learning Temperature Service!\n\n")
 
+	// create cities
+	cities, err := models.NewCities(data.NewReader())
+	if err != nil {
+		fmt.Println("Fatal error occurred: ", err)
+		return
+	}
+
 	// initialise printer and defer cleanup
 	p := printer.New()
 	defer p.Cleanup()
 	p.CityHeader()
 
-	// setup some cities
-	lon := models.NewCity("London", 23, false, false)
-	bcn := models.NewCity("Barcelona", 30, true, false)
-	nyc := models.NewCity("New York", 28, true, false)
-	ant := models.NewCity("St. Anton", -3, false, true)
-	asp := models.NewCity("Aspen", -5, false, true)
-
 	//print all the cities
-	p.CityDetails(lon)
-	p.CityDetails(bcn)
-	p.CityDetails(nyc)
-	p.CityDetails(ant)
-	p.CityDetails(asp)
+	for _, c := range cities.ListAll() {
+		p.CityDetails(c)
+	}
 }

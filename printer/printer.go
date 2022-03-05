@@ -22,7 +22,7 @@ func New() *Printer {
 
 // CityHeader prints out the table header for the city table
 func (p *Printer) CityHeader() {
-	fmt.Fprintln(p.w, "Name\tTempC\tTempF\tBeach vacation ready?\tSki vacation ready?")
+	fmt.Fprintln(p.w, "Name\tTempC\tTempF\tBeach ready?\tSki ready?")
 }
 
 // CityDetails prints out the given city
