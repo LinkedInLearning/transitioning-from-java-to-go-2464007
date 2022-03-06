@@ -10,7 +10,7 @@ type cities struct {
 }
 
 type Cities interface {
-	ListAll() []CityTemp
+	Filter(beach bool, ski bool) []CityTemp
 }
 
 // NewCities initialises the Cities data structure by calling the
@@ -30,8 +30,42 @@ func NewCities(reader data.DataReader) (Cities, error) {
 	}, nil
 }
 
-// ListAll returns a slice of all the cities.
-func (c cities) ListAll() []CityTemp {
+// Filter process the beach and ski markers and returns the list cities.
+func (c cities) Filter(beach bool, ski bool) []CityTemp {
+	// no flags set, return all
+	if !beach && !ski {
+		return c.listAll()
+	}
+	return c.filterHelper(beach, ski)
+}
+
+// filterHelper is a helper method that processes the values of
+// beach and ski flags on the list of cities.
+func (c cities) filterHelper(beach bool, ski bool) []CityTemp {
+	var cs []CityTemp
+	for _, rc := range c.cityMap {
+		if matchFilter(rc, beach, ski) {
+			cs = append(cs, rc)
+		}
+	}
+	sortAlphabetically(cs)
+	return cs
+}
+
+// matchFilter returns whether the given city matches given filter parameters
+func matchFilter(rc CityTemp, beach bool, ski bool) bool {
+	if beach && rc.BeachVacationReady() {
+		return true
+	}
+	if ski && rc.SkiVacationReady() {
+		return true
+	}
+
+	return false
+}
+
+// listAll returns a slice of all the cities.
+func (c cities) listAll() []CityTemp {
 	var cs []CityTemp
 	for _, rc := range c.cityMap {
 		cs = append(cs, rc)
