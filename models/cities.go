@@ -1,6 +1,9 @@
 package models
 
-import "linkedInLearning/tempService/data"
+import (
+	"linkedInLearning/tempService/data"
+	"sort"
+)
 
 type cities struct {
 	cityMap map[string]CityTemp
@@ -33,5 +36,14 @@ func (c cities) ListAll() []CityTemp {
 	for _, rc := range c.cityMap {
 		cs = append(cs, rc)
 	}
+	sortAlphabetically(cs)
 	return cs
+}
+
+// sortAlphabetically is a helper method that
+// sorts a slice of cities alphabetically by name.
+func sortAlphabetically(cs []CityTemp) {
+	sort.Slice(cs, func(i, j int) bool {
+		return cs[i].Name() < cs[j].Name()
+	})
 }
