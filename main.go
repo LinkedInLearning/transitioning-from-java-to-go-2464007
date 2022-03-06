@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"sort"
 
 	"linkedInLearning/tempService/data"
 	"linkedInLearning/tempService/models"
@@ -29,15 +28,10 @@ func main() {
 	defer p.Cleanup()
 	p.CityHeader()
 
-<<<<<<< HEAD
 	// filter cities
 	cs := cities.Filter(*beachReady, *skiReady)
 	// print all the cities
 	for _, c := range cs {
-=======
-	//print all the cities
-	for _, c := range cities.ListAll() {
->>>>>>> 6d08de4 (add json input for cities)
 		p.CityDetails(c)
 	}
 }
