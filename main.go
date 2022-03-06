@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"sort"
 
 	"linkedInLearning/tempService/data"
 	"linkedInLearning/tempService/models"
