@@ -26,8 +26,8 @@ func (p *Printer) CityHeader() {
 }
 
 // CityDetails prints out the given city
-func (p *Printer) CityDetails(c models.CityTemp) {
-	fmt.Fprintf(p.w, "%v\t%v\t%v\t%v\t%v\n", c.Name(), c.TempC(), c.TempF(), c.BeachVacationReady(), c.SkiVacationReady())
+func (p *Printer) CityDetails(c models.CityTemp, cq models.CityQuery) {
+	fmt.Fprintf(p.w, "%v\t%v\t%v\t%v\t%v\n", c.Name(), c.TempC(cq), c.TempF(cq), c.BeachVacationReady(cq), c.SkiVacationReady(cq))
 }
 
 // Cleanup closes up the printer instance
