@@ -10,7 +10,7 @@ type cities struct {
 }
 
 type Cities interface {
-	Filter(beach bool, ski bool) []CityTemp
+	Filter(q CityQuery) []CityTemp
 }
 
 // NewCities initialises the Cities data structure by calling the
