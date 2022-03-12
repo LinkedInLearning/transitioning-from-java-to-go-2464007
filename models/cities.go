@@ -3,6 +3,7 @@ package models
 import (
 	"linkedInLearning/tempService/data"
 	"sort"
+	"strings"
 )
 
 type cities struct {
@@ -30,21 +31,21 @@ func NewCities(reader data.DataReader) (Cities, error) {
 	}, nil
 }
 
-// Filter process the beach and ski markers and returns the list cities.
-func (c cities) Filter(beach bool, ski bool) []CityTemp {
+// Filter processes the city query and returns the list of matching cities.
+func (c cities) Filter(q CityQuery) []CityTemp {
 	// no flags set, return all
-	if !beach && !ski {
+	if !q.Beach() && !q.Ski() && q.Name() == "" {
 		return c.listAll()
 	}
-	return c.filterHelper(beach, ski)
+	return c.filterHelper(q)
 }
 
 // filterHelper is a helper method that processes the values of
 // beach and ski flags on the list of cities.
-func (c cities) filterHelper(beach bool, ski bool) []CityTemp {
+func (c cities) filterHelper(q CityQuery) []CityTemp {
 	var cs []CityTemp
 	for _, rc := range c.cityMap {
-		if matchFilter(rc, beach, ski) {
+		if matchFilter(rc, q) {
 			cs = append(cs, rc)
 		}
 	}
@@ -53,11 +54,14 @@ func (c cities) filterHelper(beach bool, ski bool) []CityTemp {
 }
 
 // matchFilter returns whether the given city matches given filter parameters
-func matchFilter(rc CityTemp, beach bool, ski bool) bool {
-	if beach && rc.BeachVacationReady() {
+func matchFilter(rc CityTemp, q CityQuery) bool {
+	if q.Beach() && rc.BeachVacationReady(q) {
 		return true
 	}
-	if ski && rc.SkiVacationReady() {
+	if q.Ski() && rc.SkiVacationReady(q) {
+		return true
+	}
+	if q.Name() != "" && strings.Contains(strings.ToLower(rc.Name()), q.Name()) {
 		return true
 	}
 
