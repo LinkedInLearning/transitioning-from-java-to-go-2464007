@@ -6,11 +6,11 @@ import (
 )
 
 type Response struct {
-	Id          string  `json:"id"`
-	Name        string  `json:"name"`
-	HasBeach    bool    `json:"hasBeach"`
-	HasMountain bool    `json:"hasMountain"`
-	TempC       float64 `json:"tempC"`
+	Id          string    `json:"id"`
+	Name        string    `json:"name"`
+	HasBeach    bool      `json:"hasBeach"`
+	HasMountain bool      `json:"hasMountain"`
+	TempC       []float64 `json:"tempC"`
 }
 
 type DataReader interface {
