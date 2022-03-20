@@ -13,6 +13,7 @@ type Response struct {
 	TempC       []float64 `json:"tempC"`
 }
 
+//go:generate mockgen -destination=../mocks/mock_reader.go -package=mocks linkedInLearning/tempService/data DataReader
 type DataReader interface {
 	ReadData() ([]Response, error)
 }
