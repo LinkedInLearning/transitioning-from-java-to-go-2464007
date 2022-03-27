@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 
-	"github.com/tempService/city"
-	"github.com/tempService/printer"
+	"linkedInLearning/tempService/models"
+	"linkedInLearning/tempService/printer"
 )
 
 func main() {
-	fmt.Printf("Welcome to the City Temp Service!\n\n")
+	fmt.Printf("Welcome to the LinkedIn Learning Temperature Service!\n\n")
 
 	// initialise printer and defer cleanup
 	p := printer.New()
@@ -16,11 +16,11 @@ func main() {
 	p.CityHeader()
 
 	// setup 3 cities
-	lon := city.New("London")
+	lon := models.NewCity("London")
 	lon.TempC = 7.5
-	ams := city.New("Amsterdam")
+	ams := models.NewCity("Amsterdam")
 	ams.TempC = 11
-	nyc := city.New("New York")
+	nyc := models.NewCity("New York")
 	nyc.TempC = -3
 
 	//print all the cities
