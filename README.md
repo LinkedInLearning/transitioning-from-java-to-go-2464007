@@ -26,7 +26,10 @@ To resolve this issue:
     - [Visual Studio Code](https://code.visualstudio.com/) or any other IDE of your choice
     - [Git](https://git-scm.com/)
 2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. Run `go get .` from the root directory where you cloned this repository to install dependencies used in your current branch. Note, different branches have different dependencies, so make sure to run this command when you change branch.
+3. Run `go install github.com/golang/mock/mockgen@v1.6.0` to install `mockgen`.
+4. Add `mockgen` install location to your `PATH` environment variable using `export PATH=“$HOME/go/bin:$PATH"`
+5. Run `go get github.com/golang/mock/` to install `golang/mock`.
+6. Run `go get .` from the root directory where you cloned this repository to install dependencies used in your current branch. Note, different branches have different dependencies, so make sure to run this command when you change branch.
 
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
